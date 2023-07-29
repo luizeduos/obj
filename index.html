@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+</head>
+<body>
+    <div class="container"><div class="btn"><input type="button" value="Clique aqui!" id="exibir"></div><div id="resultado"></div></div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            width: 100vw;
+            height: 100vh;
+            border: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        #exibir {
+            width: 400px;
+            height: 100px;
+            border-radius: 200px;
+            background-color: #f0f0f0;
+            border-style: none;
+            font-size: 30px;
+        }
+
+        #exibir:hover {
+            background-color: #7d5b8c;
+            color: #f0f0f0  ;
+        }
+    </style>
+    <script>
+        const produto = {
+            item: "tênis",
+            marca: "nike",
+            preco: "599,90",
+            descricao: "Este tênis é projetado para corrida e possui tecnologias avançadas para proporcionar conforto, suporte e desempenho superior.",
+            categoria: "corrida" 
+        }
+
+        var btnClick = document.querySelector("#exibir")
+
+        btnClick.addEventListener('click', function() {
+            const resultado = document.querySelector("#resultado")
+
+            for(const propriedades in produto) {
+                const p = document.createElement("p");
+                p.textContent = produto[propriedades];
+                resultado.appendChild(p);
+            }
+        })
+    </script>
+</body>
+</html>
